@@ -1,0 +1,25 @@
+#scroll-button
+{
+    position: fixed;
+    width: 35px;
+    height: 62px;
+    right: 20px;
+    bottom: 20px;
+
+    font-size: 15px;
+    background-color: rgb(0, 0, 137);
+    border-radius: 15px;
+}
+
+.scroll-button-element
+{
+    text-align: center;
+    padding: 5px;
+    margin: 0px 2px;
+    color: white;
+}
+
+#bottom-scroll-button
+{
+    border-top: 2px solid white;
+}
