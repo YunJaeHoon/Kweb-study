@@ -1,0 +1,18 @@
+const getDivisors = num =>
+{
+    const arr = [];
+    for(let i = 1; i <= Math.sqrt(num); i++)
+    {
+        if( i * i == num)
+        {
+            arr.push(i);
+        }
+        else if(num % i == 0)
+        {
+            arr.push(i, num/i);
+        }
+    }
+
+    arr.sort((a, b) => a - b);
+    return arr;
+}
