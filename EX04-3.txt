@@ -1,0 +1,5 @@
+const changeBoxColor = () =>
+{
+    const target = document.getElementsByClassName('box')[1];
+    target.style.backgroundColor = 'blue';
+};

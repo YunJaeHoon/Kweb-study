@@ -1,0 +1,20 @@
+const displayTimes = () =>
+{
+    const num = document.getElementById('number').value;
+    const number = parseInt(num);
+    const box = document.getElementById('times-result');
+
+    if(!isFinite(number) || num != number || (number < 1 || number > 9))
+    {
+        box.innerText = 'Input Error!';
+    }
+    else
+    {
+        const result = [];
+        for(let i = 1; i <= 9; i++)
+        {
+            result.push(number + ' x ' + i + ' = ' + number * i);
+        }
+        box.innerText = result.join('\n');
+    }
+};
