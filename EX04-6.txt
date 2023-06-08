@@ -1,0 +1,48 @@
+const RMIN = 0;
+const RMAX = 6;
+const CMIN = 0;
+const CMAX = 7;
+const current = { row: 5, col: 0 };
+
+const getElementByPosition = pos =>
+{
+	const where = document.getElementsByClassName('cells')[pos.row];
+	return where.getElementsByClassName('cell')[pos.col];
+};
+
+const getNewPositionByKey = key =>
+{
+	const pos =
+	{
+		row: current.row,
+		col: current.col,
+	}
+	switch (key)
+	{
+		case 'ArrowUp': pos.row--; break;
+		case 'ArrowDown': pos.row++; break;
+		case 'ArrowLeft': pos.col--; break;
+		case 'ArrowRight': pos.col++; break;
+	}
+	return pos;
+};
+
+const isPositionInRange = pos => (pos.row >= RMIN) && (pos.row <= RMAX) && (pos.col >= CMIN) && (pos.col <= CMAX);
+
+const isPositionWall = pos => getElementByPosition(pos).classList.contains('wall');
+
+document.addEventListener('keyup', event =>
+{
+	getElementByPosition(current).classList.remove('current');
+	const pos = getNewPositionByKey(event.code);
+
+	if (isPositionInRange(newPos) && !isPositionWall(newPos))
+	{
+		current.row = pos.row;
+		current.col = pos.col;
+	}
+
+	const new_pos = getElementByPosition(current);
+	new_pos.classList.add('current');
+	if (new_pos.classList.contains('target')) alert('You Escaped!');
+} );

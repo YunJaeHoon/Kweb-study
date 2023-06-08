@@ -1,0 +1,17 @@
+const price =
+{
+	apple: 700,
+	orange: 800,
+	lemon: 900,
+};
+let totalPrice = 0;
+
+for (const cart_btn of document.getElementsByClassName('add-to-cart'))
+{
+	cart_btn.addEventListener('click', event =>
+	{
+		const what_item = event.target.parentNode.parentNode.getAttribute('id');
+		total += price[what_item];
+		document.getElementById('cost').innerText = total;
+	} );
+}

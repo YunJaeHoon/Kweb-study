@@ -1,0 +1,32 @@
+const arr_level = [ 100, 60, 36, 22, 13, 8, 5, 3, 2, 1 ];
+let count = 0;
+let i = 0;
+
+const getRandomBinaryResult = ratio =>
+{
+	const random_num = Math.floor(Math.random() * 100);
+	return (random_num < ratio);
+};
+
+const tryLevelUp = () =>
+{
+	const click_btn = setInterval( () =>
+	{
+		const level_up = getRandomBinaryResult(arr_level[i]);
+
+		if (level_up)
+		{
+			i++;
+			document.getElementById('gauge-bar').style.width = level * 10 + '%';
+			document.getElementById('current-level').innerText = level;
+		}
+
+		if (level >= 10)
+		{
+			clearInterval(click_btn);
+		}
+
+		count++;
+		document.getElementById('attempts').innerText = count;
+	}, 50);
+};
